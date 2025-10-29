@@ -3,6 +3,8 @@
 # List of agent models to iterate over
 AGENT_MODELS=(
     "o1-2024-12-17"
+    "o1-mini"
+    "gpt-4o"
     # "gpt-4o-2024-11-20"
     # "gpt-4o-mini-2024-07-18"
     # "llama3.1-405b-instruct"
@@ -17,19 +19,19 @@ AGENT_MODELS=(
 TASKS=(
     "policy_violation_identification"
     # "monthly_trend_analysis"
-    "named_entity_disambiguation"
-    "best_region_identification"
-    "handle_time"
-    "knowledge_qa"
-    "transfer_count"
-    "case_routing"
-    "top_issue_identification"
+    #"named_entity_disambiguation"
+    #"best_region_identification"
+    #"handle_time"
+    #"knowledge_qa"
+    #"transfer_count"
+    #"case_routing"
+    #"top_issue_identification"
 )
 
 STRATEGIES=(
-    # "react"
+     "react"
     # "act"
-    "tool_call"
+    #"tool_call"
 )
 
 
@@ -75,7 +77,7 @@ for AGENT_MODEL in "${AGENT_MODELS[@]}"; do
             LOG_FILE="${LOG_DIR}/run_${AGENT_MODEL}_${AGENT_STRATEGY}_${TASK_CATEGORY}_${EVAL_MODE}.log"
 
            
-            python -u run_tasks.py \
+            python3 -u run_tasks.py \
                 --model "$AGENT_MODEL" \
                 --task_category "$TASK_CATEGORY" \
                 --agent_eval_mode "$EVAL_MODE" \

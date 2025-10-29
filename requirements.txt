@@ -37,7 +37,7 @@ tqdm==4.66.5
 typing_extensions==4.12.2
 tzdata==2024.1
 urllib3==2.2.2
-zeep==4.2.1
+zeep>=4.3.2
 sacrebleu==2.4.3
 rouge==1.0.1
 litellm==1.67.2

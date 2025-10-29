@@ -94,7 +94,7 @@ for AGENT_MODEL in "${AGENT_MODELS[@]}"; do
             LOG_FILE="${LOG_DIR}/run_${AGENT_MODEL}_${AGENT_STRATEGY}_${TASK_CATEGORY}_${EVAL_MODE}.log"
 
             if [ "$INTERACTIVE" = true ]; then
-                python -u run_tasks.py \
+                python3 -u run_tasks.py \
                     --model "$AGENT_MODEL" \
                     --task_category "$TASK_CATEGORY" \
                     --agent_eval_mode "$EVAL_MODE" \
@@ -107,7 +107,7 @@ for AGENT_MODEL in "${AGENT_MODELS[@]}"; do
                     --org_type "$ORG_TYPE" > "$LOG_FILE" 2>&1 &
                     
             else
-                python -u run_tasks.py \
+                python3 -u run_tasks.py \
                     --model "$AGENT_MODEL" \
                     --task_category "$TASK_CATEGORY" \
                     --agent_eval_mode "$EVAL_MODE" \

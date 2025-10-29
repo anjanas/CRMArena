@@ -1,7 +1,7 @@
 import os
 from litellm import completion
 import litellm
-litellm.set_verbose = False
+litellm.set_verbose = True
 from typing import Dict, List
 import time, traceback
 from crm_sandbox.agents.prompts import SCHEMA_STRING, REACT_RULE_STRING, SYSTEM_METADATA, REACT_EXTERNAL_INTERACTIVE_PROMPT, REACT_INTERNAL_INTERACTIVE_PROMPT, REACT_INTERNAL_PROMPT, REACT_EXTERNAL_PROMPT, REACT_PRIVACY_AWARE_EXTERNAL_PROMPT, REACT_PRIVACY_AWARE_EXTERNAL_INTERACTIVE_PROMPT, ACT_PROMPT
@@ -123,6 +123,8 @@ class ChatAgent:
                 thinking = {"type": "enabled", "budget_tokens": 4096}
             else:
                 thinking = None
+            #print the api key
+            print(os.getenv("OPENAI_API_KEY"))
             
             res = completion(
                 messages=self.messages,
@@ -131,6 +133,7 @@ class ChatAgent:
                 max_tokens=2000 if self.original_model_name not in ["o1-mini", "o1-preview", "o1-2024-12-17", "deepseek-r1", "o3-mini-2025-01-31", "gemini-2.5-flash-preview-04-17", "gemini-2.5-flash-preview-04-17-thinking-4096", "gemini-2.5-pro-preview-03-25"] else 50000,
                 top_p=1.0 if self.model not in ["o3-mini-2025-01-31"] else None,
                 thinking= thinking,  
+                api_key=os.getenv("OPENAI_API_KEY"),
                 # custom_llm_provider=self.provider,
                 additional_drop_params=["temperature"] if self.original_model_name in ["o1-mini", "o1-preview", "o1-2024-12-17", "deepseek-r1", "o3-mini-2025-01-31"] else []
             )
