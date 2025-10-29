@@ -18,14 +18,14 @@ AGENT_MODELS=(
 
 TASKS=(
     "policy_violation_identification"
-    # "monthly_trend_analysis"
-    #"named_entity_disambiguation"
-    #"best_region_identification"
-    #"handle_time"
-    #"knowledge_qa"
-    #"transfer_count"
-    #"case_routing"
-    #"top_issue_identification"
+ #    "monthly_trend_analysis"
+ #   "named_entity_disambiguation"
+  #  "best_region_identification"
+  #  "handle_time"
+   # "knowledge_qa"
+   # "transfer_count"
+   # "case_routing"
+   # "top_issue_identification"
 )
 
 STRATEGIES=(
